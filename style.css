@@ -34,8 +34,16 @@ button {
   color: #333;
 }
 
+.start img {
+  width: 230px;
+  height: 300px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
 .start-btn {
-  width: 100%;
+  width: 70%;
   font-size: 20px;
   margin: 20px;
   padding: 10px 0;
@@ -70,6 +78,7 @@ button {
 .result img {
   width: 300px;
   height: 300px;
+  box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
 .question {
@@ -79,20 +88,26 @@ button {
 
 .question h2 {
   font-family: "Lora", sans-serif;
+  margin-bottom: 20px;
 }
 
 .question button {
   background: transparent;
 }
 
-.question .btn-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.question button img {
+.question img {
   width: 200px;
   height: 200px;
   margin-top: 10px;
   border-radius: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.question img:hover {
+  opacity: 0.6;
+}
+
+.question .btn-container {
+  display: flex;
+  justify-content: space-evenly;
 }
