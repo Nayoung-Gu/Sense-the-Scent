@@ -11,12 +11,17 @@
       integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/b8c83217b9.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <title>Find Your Scent</title>
   </head>
   <body class="container">
     <article class="start">
       <h1 class="mt-5 text-center">Find Your Scent</h1>
+      <img src="images/front3.jpg" alt="" />
       <button type="button" class="btn btn-outline-secondary start-btn">
         Start
       </button>
@@ -26,6 +31,9 @@
       </div>
     </article>
     <article class="question hide">
+      <button class="home" type="button">
+        <i class="fa-solid fa-house"></i> Go Home
+      </button>
       <div class="progress">
         <div
           class="progress-bar bg-dark"
@@ -41,6 +49,9 @@
       </div>
     </article>
     <article class="result hide mt-5 text-center">
+      <button class="home" type="button">
+        <i class="fa-solid fa-house"></i> Go Home
+      </button>
       <h2>Perfume for you</h2>
       <img
         src="images/sample.jpg"
@@ -48,7 +59,7 @@
         id="result-img"
         class="rounded mt-5 result-img"
       />
-      <h4 id="result-product" class="mt-5">Perfume Name</h4>
+      <h4 class="mt-5 result-product">Perfume Name</h4>
     </article>
     <input type="hidden" id="lightness" value="0" />
     <input type="hidden" id="sharpness" value="0" />

@@ -12,6 +12,7 @@ const firstAnswer = document.getElementById("A");
 const secondAnswer = document.getElementById("B");
 const thirdAnswer = document.getElementById("C");
 const result = document.querySelector(".result");
+const homeBtns = document.querySelectorAll(".home");
 
 const quotes = [
   {
@@ -56,6 +57,7 @@ const quotes = [
   },
 ];
 
+// Show random quote on start page
 function getQuote() {
   const quote = quoteCont.querySelector(".quote");
   const quoteAuthor = quoteCont.querySelector(".quote-author");
@@ -64,8 +66,12 @@ function getQuote() {
   quoteAuthor.innerText = `- ${quotes[index]["author"]}`;
 }
 
+getQuote();
+
+// Set first order of questions
 let num = 1;
 
+// Questions list
 const questions = {
   1: {
     title: "Question 1",
@@ -123,6 +129,7 @@ const questions = {
   },
 };
 
+// Result items list
 let perfumes = {
   LsharpF: { product: "Miss Dior", img: "images/sample.jpg" },
   LsharpG: { product: "Miss Dior", img: "images/sample.jpg" },
@@ -134,12 +141,14 @@ let perfumes = {
   DsmoothpG: { product: "Miss Dior", img: "images/sample.jpg" },
 };
 
+// Start a test
 startBtn.addEventListener("click", () => {
   start.classList.add("hide");
   questionCont.classList.remove("hide");
   next();
 });
 
+// Store result count
 $("#A").click(function () {
   let type = $("#type").val();
   let preValue = $("#" + type).val();
@@ -151,6 +160,7 @@ $("#B").click(function () {
   next();
 });
 
+// Move to a next question
 function next() {
   if (num == 10) {
     questionCont.classList.add("hide");
@@ -169,12 +179,15 @@ function next() {
     progress.style.width = ` calc(100 / 9 * ${num}%)`;
     title.innerText = questions[num]["title"];
     questionType.value = questions[num]["type"];
-    // firstAnswer.innerHTML = questions[num]["A"];
-    // secondAnswer.innerHTML = questions[num]["B"];
     firstAnswer.querySelector("img").src = questions[num]["A"];
     secondAnswer.querySelector("img").src = questions[num]["B"];
     num++;
   }
 }
 
-getQuote();
+// Go back to home
+homeBtns.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    location.reload();
+  })
+);
