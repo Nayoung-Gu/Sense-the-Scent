@@ -71,10 +71,6 @@ button {
   font-size: 13px;
 }
 
-.hide {
-  display: none;
-}
-
 .home {
   border-radius: 3px;
 }
@@ -120,6 +116,61 @@ button {
   justify-content: space-evenly;
 }
 
+.result-loading {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-loading p {
+  color: #444;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.square-cont {
+  display: flex;
+  justify-content: center;
+}
+
+.square {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 10px;
+  height: 30px;
+  margin: 10px;
+  animation: bounce 0.7s ease-in infinite;
+}
+
+.square:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.square:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+.square:nth-of-type(4) {
+  animation-delay: 0.3s;
+}
+
+.square:nth-of-type(5) {
+  animation-delay: 0.4s;
+}
+
 .result h2 {
   margin-top: 20px;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hide {
+  display: none;
 }

@@ -11,6 +11,7 @@ const title = document.getElementById("title");
 const firstAnswer = document.getElementById("A");
 const secondAnswer = document.getElementById("B");
 const thirdAnswer = document.getElementById("C");
+const loading = document.querySelector(".result-loading");
 const result = document.querySelector(".result");
 const homeBtns = document.querySelectorAll(".home");
 
@@ -164,7 +165,11 @@ $("#B").click(function () {
 function next() {
   if (num == 10) {
     questionCont.classList.add("hide");
-    result.classList.remove("hide");
+    loading.classList.remove("hide");
+    setTimeout(() => {
+      loading.classList.add("hide");
+      result.classList.remove("hide");
+    }, 2500);
     let preference = "";
     lightness.value > 1 ? (preference += "L") : (preference += "D");
     sharpness.value > 1 ? (preference += "sharp") : (preference += "smooth");
