@@ -10,10 +10,13 @@ const floral = document.getElementById("floral");
 const title = document.getElementById("title");
 const firstAnswer = document.getElementById("A");
 const secondAnswer = document.getElementById("B");
-const thirdAnswer = document.getElementById("C");
 const loading = document.querySelector(".result-loading");
 const result = document.querySelector(".result");
 const homeBtns = document.querySelectorAll(".home");
+
+let lightnessVal = +lightness.value;
+let sharpnessVal = +sharpness.value;
+let floralVal = +floral.value;
 
 const quotes = [
   {
@@ -138,8 +141,8 @@ let perfumes = {
   LsmoothG: { product: "Miss Dior", img: "images/sample.jpg" },
   DsharpF: { product: "Miss Dior", img: "images/sample.jpg" },
   DsharpG: { product: "Miss Dior", img: "images/sample.jpg" },
-  DsmoothpF: { product: "Miss Dior", img: "images/sample.jpg" },
-  DsmoothpG: { product: "Miss Dior", img: "images/sample.jpg" },
+  DsmoothF: { product: "Miss Dior", img: "images/sample.jpg" },
+  DsmoothG: { product: "Miss Dior", img: "images/sample.jpg" },
 };
 
 // Start a test
@@ -150,16 +153,19 @@ startBtn.addEventListener("click", () => {
 });
 
 // Store result count
-$("#A").click(function () {
-  let type = $("#type").val();
-  let preValue = $("#" + type).val();
-  $("#" + type).val(parseInt(preValue) + 1);
+firstAnswer.addEventListener("click", () => {
+  let type = questionType.value;
+  if (type === "lightness") {
+    lightnessVal += 1;
+  } else if (type === "sharpness") {
+    sharpnessVal += 1;
+  } else {
+    floralVal += 1;
+  }
   next();
 });
 
-$("#B").click(function () {
-  next();
-});
+secondAnswer.addEventListener("click", next);
 
 // Move to a next question
 function next() {
@@ -171,12 +177,13 @@ function next() {
       result.classList.remove("hide");
     }, 2500);
     let preference = "";
-    lightness.value > 1 ? (preference += "L") : (preference += "D");
-    sharpness.value > 1 ? (preference += "sharp") : (preference += "smooth");
-    floral.value > 1 ? (preference += "F") : (preference += "G");
+    lightnessVal > 1 ? (preference += "L") : (preference += "D");
+    sharpnessVal > 1 ? (preference += "sharp") : (preference += "smooth");
+    floralVal > 1 ? (preference += "F") : (preference += "G");
 
     const resultImg = result.querySelector(".result-img");
     const resultProduct = result.querySelector(".result-product");
+    resultProduct.innerText = preference;
 
     resultImg.src = perfumes[preference]["img"];
     resultProduct.innerText = perfumes[preference]["product"];
