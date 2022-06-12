@@ -159,7 +159,7 @@ firstAnswer.addEventListener("click", () => {
     lightnessVal += 1;
   } else if (type === "sharpness") {
     sharpnessVal += 1;
-  } else {
+  } else if (type === "floral") {
     floralVal += 1;
   }
   next();
@@ -169,22 +169,22 @@ secondAnswer.addEventListener("click", next);
 
 // Move to a next question
 function next() {
-  if (num == 10) {
+  if (num === 10) {
     questionCont.classList.add("hide");
     loading.classList.remove("hide");
     setTimeout(() => {
       loading.classList.add("hide");
       result.classList.remove("hide");
     }, 2500);
+    // Define preference
     let preference = "";
     lightnessVal > 1 ? (preference += "L") : (preference += "D");
     sharpnessVal > 1 ? (preference += "sharp") : (preference += "smooth");
     floralVal > 1 ? (preference += "F") : (preference += "G");
 
+    // Show result
     const resultImg = result.querySelector(".result-img");
     const resultProduct = result.querySelector(".result-product");
-    resultProduct.innerText = preference;
-
     resultImg.src = perfumes[preference]["img"];
     resultProduct.innerText = perfumes[preference]["product"];
   } else {
