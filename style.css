@@ -160,6 +160,10 @@ button {
   margin-top: 20px;
 }
 
+.share {
+  margin: 0 auto;
+}
+
 @keyframes bounce {
   0%,
   100% {
