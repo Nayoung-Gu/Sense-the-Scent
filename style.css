@@ -22,6 +22,11 @@ body {
     position: relative;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 button {
     border: none;
 }
@@ -198,4 +203,48 @@ button {
 .result-product {
     font-family: "GangwonEdu_OTFBoldA";
     font-size: 35px;
+}
+
+.result-description {
+    color: #333;
+    font-size: 20px;
+    font-family: "GangwonEdu_OTFBoldA";
+}
+
+.link-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kor-link,
+.eng-link {
+    padding: 3px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* .kor-link::before,
+.eng-link::before {
+    content: "i";
+    background-color: #555;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    color: #fff;
+    margin-right: 0.5rem;
+    position: absolute;
+    left: -25px;
+    top: 7px;
+    pointer-events: none;
+} */
+
+.kor-link:hover,
+.eng-link:hover {
+    color: #fff;
+    background-color: #777;
+    border-radius: 5px;
+    padding: 3px;
+    text-decoration: none;
 }
