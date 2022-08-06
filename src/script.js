@@ -75,8 +75,11 @@ function next() {
 
         // Show result
         const resultImg = result.querySelector(".result-img");
+        const resultBrand = result.querySelector(".result-brand");
         const resultProduct = result.querySelector(".result-product");
+
         resultImg.src = perfumes[preference]["img"];
+        resultBrand.innerText = perfumes[preference]["brand"];
         resultProduct.innerText = perfumes[preference]["product"];
     } else {
         progress.style.width = ` calc(100 / 9 * ${num}%)`;
