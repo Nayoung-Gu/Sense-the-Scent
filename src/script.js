@@ -77,10 +77,12 @@ function next() {
         const resultImg = result.querySelector(".result-img");
         const resultBrand = result.querySelector(".result-brand");
         const resultProduct = result.querySelector(".result-product");
+        const resultDesc = result.querySelector(".result-description");
 
         resultImg.src = perfumes[preference]["img"];
         resultBrand.innerText = perfumes[preference]["brand"];
         resultProduct.innerText = perfumes[preference]["product"];
+        resultDesc.innerText = perfumes[preference]["desc"];
     } else {
         progress.style.width = ` calc(100 / 9 * ${num}%)`;
         title.innerText = questions[num]["title"];
