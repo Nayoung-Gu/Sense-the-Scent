@@ -79,10 +79,16 @@ function next() {
         const resultProduct = result.querySelector(".result-product");
         const resultDesc = result.querySelector(".result-description");
 
+        const korLink = result.querySelector(".kor-link");
+        const engLink = result.querySelector(".eng-link");
+
         resultImg.src = perfumes[preference]["img"];
         resultBrand.innerText = perfumes[preference]["brand"];
         resultProduct.innerText = perfumes[preference]["product"];
         resultDesc.innerText = perfumes[preference]["desc"];
+
+        korLink.setAttribute("href", perfumes[preference]["korLink"]);
+        engLink.setAttribute("href", perfumes[preference]["engLink"]);
     } else {
         progress.style.width = ` calc(100 / 9 * ${num}%)`;
         title.innerText = questions[num]["title"];
