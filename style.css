@@ -206,6 +206,8 @@ button {
 }
 
 .result-description {
+    word-break: keep-all;
+    max-width: 450px;
     color: #333;
     font-size: 20px;
     font-family: "GangwonEdu_OTFBoldA";
@@ -215,30 +217,16 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .kor-link,
 .eng-link {
+    width: 60%;
     padding: 3px;
     transition: all 0.3s ease;
     position: relative;
 }
-
-/* .kor-link::before,
-.eng-link::before {
-    content: "i";
-    background-color: #555;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-    color: #fff;
-    margin-right: 0.5rem;
-    position: absolute;
-    left: -25px;
-    top: 7px;
-    pointer-events: none;
-} */
 
 .kor-link:hover,
 .eng-link:hover {
