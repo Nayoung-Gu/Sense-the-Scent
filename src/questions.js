@@ -20,8 +20,8 @@ const questions = {
     4: {
         title: "평소에 좋아하는 옷 스타일은?",
         type: "sharpness",
-        A: "images/4_formal.jpg",
-        B: "images/4_casual.jpg",
+        A: "images/minimal.jpg",
+        B: "images/casual.jpg",
     },
     5: {
         title: "여가 시간을 즐기고 싶은 장소는?",
