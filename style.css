@@ -36,6 +36,12 @@ button {
     font-family: "GangwonEdu_OTFBoldA";
 }
 
+.loading {
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+
 .start {
     width: 350px;
     text-align: center;
