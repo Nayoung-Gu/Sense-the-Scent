@@ -77,6 +77,7 @@ function next() {
         const resultImg = result.querySelector(".result-img");
         const resultBrand = result.querySelector(".result-brand");
         const resultProduct = result.querySelector(".result-product");
+        const resultKeywords = result.querySelector(".result-keywords");
         const resultDesc = result.querySelector(".result-description");
 
         const korLink = result.querySelector(".kor-link");
@@ -85,6 +86,12 @@ function next() {
         resultImg.src = perfumes[preference]["img"];
         resultBrand.innerText = perfumes[preference]["brand"];
         resultProduct.innerText = perfumes[preference]["product"];
+
+        perfumes[preference]["keywords"].map((keyword) => {
+            const keywordItem = document.createElement("li");
+            keywordItem.innerText = `#${keyword}`;
+            resultKeywords.appendChild(keywordItem);
+        });
         resultDesc.innerText = perfumes[preference]["desc"];
 
         korLink.setAttribute("href", perfumes[preference]["korLink"]);
