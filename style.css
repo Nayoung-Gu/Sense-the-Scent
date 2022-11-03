@@ -305,6 +305,10 @@ li {
     }
 
     /* 3. Result */
+    .result {
+        padding-top: 16px;
+    }
+
     .result .home {
         color: #fff;
         background-color: #777;
