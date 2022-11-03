@@ -38,8 +38,8 @@ let num = 1;
 
 // Start a test
 startBtn.addEventListener("click", () => {
-    start.classList.add("hide");
-    questionCont.classList.remove("hide");
+    start.classList.add("hidden");
+    questionCont.classList.remove("hidden");
     next();
 });
 
@@ -61,11 +61,11 @@ secondAnswer.addEventListener("click", next);
 // Move to a next question
 function next() {
     if (num === 10) {
-        questionCont.classList.add("hide");
-        loading.classList.remove("hide");
+        questionCont.classList.add("hidden");
+        loading.classList.remove("hidden");
         setTimeout(() => {
-            loading.classList.add("hide");
-            result.classList.remove("hide");
+            loading.classList.add("hidden");
+            result.classList.remove("hidden");
         }, 2500);
         // Define preference
         let preference = "";
