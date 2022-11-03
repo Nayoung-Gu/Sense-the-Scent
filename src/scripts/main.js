@@ -101,7 +101,13 @@ function next() {
         title.innerText = questions[num]["title"];
         questionType.value = questions[num]["type"];
         firstAnswer.querySelector("img").src = questions[num]["A"];
+        firstAnswer
+            .querySelector("img")
+            .setAttribute("alt", questions[num]["A_des"]);
         secondAnswer.querySelector("img").src = questions[num]["B"];
+        secondAnswer
+            .querySelector("img")
+            .setAttribute("alt", questions[num]["B_des"]);
         num++;
     }
 }
