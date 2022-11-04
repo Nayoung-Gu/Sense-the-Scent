@@ -60,9 +60,13 @@
     </head>
     <body class="container">
         <article class="start">
-            <h1 class="mt-5 text-center">Find Your Scent</h1>
-            <img src="./src/images/front3.jpg" alt="향수 테스트 표지 이미지" />
-            <div class="loading">
+            <h1 class="mt-5 text-center test-title">Find Your Scent</h1>
+            <img
+                class="start-img"
+                src="./src/images/front3.jpg"
+                alt="향수 테스트 표지 이미지"
+            />
+            <div class="loading hidden">
                 <img src="./src/images/1_day.jpg" alt="낮" />
                 <img src="./src/images/1_night.jpg" alt="밤" />
                 <img src="./src/images/2_summer.jpg" alt="야외 수영장" />
@@ -109,13 +113,13 @@
                 <span class="quote-author"></span>
             </div>
         </article>
-        <article class="question hide">
+        <article class="question hidden">
             <button
                 aria-label="첫 화면으로 돌아가기"
                 class="home"
                 type="button"
             >
-                <i class="fa-solid fa-house"></i> Go Home
+                <i class="fa-solid fa-house" aria-hidden></i> Go Home
             </button>
             <div class="progress">
                 <div
@@ -131,7 +135,7 @@
                 <button id="B" type="button"><img src="" alt="" /></button>
             </div>
         </article>
-        <div class="result-loading hide">
+        <div class="result-loading hidden">
             <p>Please wait a moment :)</p>
             <div class="square-cont">
                 <div class="square"></div>
@@ -141,13 +145,13 @@
                 <div class="square"></div>
             </div>
         </div>
-        <article class="result hide text-center">
+        <article class="result hidden text-center">
             <button
                 aria-label="첫 화면으로 돌아가기"
                 class="home"
                 type="button"
             >
-                <i class="fa-solid fa-house"></i> Go Home
+                <i class="fa-solid fa-house" aria-hidden></i> Go Home
             </button>
             <h3 class="mt-3 result-brand">Perfume Brand</h3>
             <h2 class="result-product">Perfume Name</h2>
@@ -157,17 +161,22 @@
                 id="result-img"
                 class="mb-3 result-img"
             />
-            <ul class="result-keywords"></ul>
+            <ul class="result-keywords" aria-label="향수 키워드"></ul>
             <p class="result-description">Perfume Description</p>
             <div class="link-wrap mb-3">
-                <a href="" class="kor-link" target="_blank">Details in Korean</a
-                ><a href="" class="eng-link" target="_blank"
+                <a href="" class="kor-link" target="_blank"
+                    >Details in Korean</a
+                >
+                <a href="" class="eng-link" target="_blank"
                     >Details in English</a
                 >
             </div>
 
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="share addthis_inline_share_toolbox_94l6"></div>
+            <div
+                class="share addthis_inline_share_toolbox_94l6"
+                aria-label="SNS에 결과 공유하기"
+            ></div>
         </article>
         <input type="hidden" id="lightness" value="0" />
         <input type="hidden" id="sharpness" value="0" />

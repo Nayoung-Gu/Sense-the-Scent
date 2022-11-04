@@ -2,20 +2,15 @@ import quotes from "./quotes.js";
 import questions from "./questions.js";
 import perfumes from "./results.js";
 
-const start = document.querySelector(".start");
 const startBtn = document.querySelector(".start-btn");
-const quoteCont = document.querySelector(".quote-container");
 const questionCont = document.querySelector(".question");
-const questionType = document.getElementById("type");
-const progress = document.querySelector(".progress-bar");
+const questionType = questionCont.querySelector(".question #type");
 const lightness = document.getElementById("lightness");
 const sharpness = document.getElementById("sharpness");
 const floral = document.getElementById("floral");
-const title = document.getElementById("title");
+const title = questionCont.querySelector(".question-title");
 const firstAnswer = document.getElementById("A");
 const secondAnswer = document.getElementById("B");
-const loading = document.querySelector(".result-loading");
-const result = document.querySelector(".result");
 const homeBtns = document.querySelectorAll(".home");
 
 let lightnessVal = +lightness.value;
@@ -24,28 +19,29 @@ let floralVal = +floral.value;
 
 // Show random quote on start page
 function getQuote() {
-    const quote = quoteCont.querySelector(".quote");
-    const quoteAuthor = quoteCont.querySelector(".quote-author");
+    const quoteCont = document.querySelector(".quote-container");
+    const [quote, quoteAuthor] = quoteCont.children;
     const index = Math.floor(Math.random() * quotes.length);
+
     quote.innerText = quotes[index]["quote"];
     quoteAuthor.innerText = `- ${quotes[index]["author"]}`;
 }
 
 getQuote();
 
-// Set first order of questions
-let num = 1;
-
 // Start a test
 startBtn.addEventListener("click", () => {
-    start.classList.add("hide");
-    questionCont.classList.remove("hide");
+    const start = document.querySelector(".start");
+
+    start.classList.add("hidden");
+    questionCont.classList.remove("hidden");
     next();
 });
 
 // Store result count
 firstAnswer.addEventListener("click", () => {
     let type = questionType.value;
+
     if (type === "lightness") {
         lightnessVal += 1;
     } else if (type === "sharpness") {
@@ -58,14 +54,22 @@ firstAnswer.addEventListener("click", () => {
 
 secondAnswer.addEventListener("click", next);
 
+// Set first order of questions
+let num = 1;
+
 // Move to a next question
 function next() {
+    const loading = document.querySelector(".result-loading");
+    const result = document.querySelector(".result");
+    const firstAnswerImg = firstAnswer.querySelector("img");
+    const secondAnswerImg = secondAnswer.querySelector("img");
+
     if (num === 10) {
-        questionCont.classList.add("hide");
-        loading.classList.remove("hide");
+        questionCont.classList.add("hidden");
+        loading.classList.remove("hidden");
         setTimeout(() => {
-            loading.classList.add("hide");
-            result.classList.remove("hide");
+            loading.classList.add("hidden");
+            result.classList.remove("hidden");
         }, 2500);
         // Define preference
         let preference = "";
@@ -97,17 +101,15 @@ function next() {
         korLink.setAttribute("href", perfumes[preference]["korLink"]);
         engLink.setAttribute("href", perfumes[preference]["engLink"]);
     } else {
-        progress.style.width = ` calc(100 / 9 * ${num}%)`;
+        const progress = questionCont.querySelector(".progress-bar");
+
+        progress.style.width = `calc(100 / 9 * ${num}%)`;
         title.innerText = questions[num]["title"];
         questionType.value = questions[num]["type"];
-        firstAnswer.querySelector("img").src = questions[num]["A"];
-        firstAnswer
-            .querySelector("img")
-            .setAttribute("alt", questions[num]["A_des"]);
-        secondAnswer.querySelector("img").src = questions[num]["B"];
-        secondAnswer
-            .querySelector("img")
-            .setAttribute("alt", questions[num]["B_des"]);
+        firstAnswerImg.src = questions[num]["A"];
+        firstAnswerImg.setAttribute("alt", questions[num]["A_des"]);
+        secondAnswerImg.src = questions[num]["B"];
+        secondAnswerImg.setAttribute("alt", questions[num]["B_des"]);
         num++;
     }
 }
